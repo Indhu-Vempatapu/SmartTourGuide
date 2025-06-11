@@ -72,3 +72,7 @@ This approach makes the system scalable and modular—just add new rules for new
 
 - Scalable design for future rule additions (e.g., climate, group size)
 
+# Output 
+
+![Demo](assets/video.gif)**
+
