@@ -74,5 +74,5 @@ This approach makes the system scalable and modular—just add new rules for new
 
 # Output 
 
-![Demo](assets/video.mp4)**
+![Demo](assets/video.gif)**
 
