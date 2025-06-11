@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommendations</title>
+    <style>
+        body { background-color: #fdf6e3; font-family: Verdana; text-align: center; }
+        .card {
+            margin: 20px auto;
+            width: 70%;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body>
+    <h1>Recommended Activities</h1>
+    {% if recommendations %}
+        {% for r in recommendations %}
+            <div class="card">
+                <h2>{{ r }}</h2>
+                <p>
+                    {% if "Elephant Rock" in r %} A famous rock formation in AlUla, Saudi Arabia.
+                    {% elif "AlUla Museum" in r %} A cultural site showcasing Saudi heritage.
+                    {% elif "Delhi" in r %} Experience spicy chaat, golgappa, and parathas in Old Delhi!
+                    {% elif "Goa" in r %} Try jet-skiing, parasailing, and beach fun in Goa.
+                    {% elif "Udaipur" in r %} Enjoy soul-soothing folk performances by lakeside palaces.
+                    {% else %} A unique place worth exploring! {% endif %}
+                </p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No recommendations found. Try selecting different interests.</p>
+    {% endif %}
+</body>
+</html>

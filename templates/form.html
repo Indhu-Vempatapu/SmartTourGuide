@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Your Travel Interests</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .left-panel {
+            width: 35%;
+            min-width: 300px;
+            background: url('{{ url_for("static", filename="form_image.jpg") }}') no-repeat center center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: fixed;
+            height: 100vh;
+            top: 0;
+            left: 0;
+        }
+
+        .right-panel {
+            margin-left: 35%;
+            flex: 1;
+            overflow-y: auto;
+            padding: 40px;
+            background: linear-gradient(to bottom, #dfe9f3, #ffffff);
+            height: 100vh;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: 500;
+            display: block;
+            margin-top: 15px;
+        }
+
+        select {
+            padding: 5px 10px;
+            font-size: 16px;
+            margin-top: 5px;
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            margin-top: 30px;
+            width: 100%;
+            padding: 10px 25px;
+            font-size: 18px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel"></div>
+        <div class="right-panel">
+            <div class="form-container">
+                <h1>Your Travel Preferences</h1>
+                <form method="post">
+                    {% set questions = {
+                        'history': "Do you enjoy exploring historical places?",
+                        'observation': "Are you interested in observing architecture and landscapes?",
+                        'physical_activity': "Do you like engaging in physical activities while traveling?",
+                        'outdoor': "Do you prefer outdoor experiences?",
+                        'race': "Are you a fan of races or competitions?",
+                        'contemporary_art': "Do you appreciate contemporary art or exhibitions?",
+                        'adventurous': "Do you love adventurous activities?",
+                        'relaxation': "Do you prefer relaxing and calm places?",
+                        'physical': "Do you enjoy physically engaging environments?",
+                        'musical_performance': "Do you enjoy musical or cultural performances?",
+                        'filmmaking': "Are you interested in places related to films or documentaries?",
+                        'shopping': "Do you enjoy shopping during trips?",
+                        'traditional_cuisine': "Are you a fan of traditional local cuisine?",
+                        'international_cuisine': "Do you enjoy trying international foods?",
+                        'high_budget': "Are you okay with high-budget experiences?",
+                        'nature': "Do you enjoy spending time in nature, forests, or hills?",
+                        'religious_spiritual': "Do you like visiting religious or spiritual places?",
+                        'wildlife': "Are you interested in animals or wildlife sanctuaries?",
+                        'festivals': "Do you enjoy attending cultural or traditional festivals?",
+                        'technology_innovation': "Are you fascinated by technology, innovation, or science centers?",
+                        'photography': "Do you enjoy photography while traveling?",
+                        'architecture': "Do you love seeing beautiful or historic architecture?",
+                        'cold_climate': "Do you prefer cold or snowy destinations?",
+                        'beach_lovers': "Do you enjoy visiting beaches?",
+                        'budget_friendly': "Do you look for budget-friendly travel options?"
+                    } %}
+                    {% for interest, question in questions.items() %}
+                        <label>{{ question }}</label>
+                        <select name="{{ interest }}">
+                            <option value="n">No</option>
+                            <option value="y">Yes</option>
+                        </select>
+                    {% endfor %}
+                    <input type="submit" value="Get Recommendations">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
